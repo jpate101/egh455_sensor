@@ -53,7 +53,7 @@ while True:
     logging.info("""Light: {:05.02f} Lux
     """.format(lux))
 
-    logging.info("""Amps: {:05.02f} Lux
+    logging.info("""Amps: {:05.02f} Amps
     """.format(amp))
 
     logging.info(readings)
