@@ -31,6 +31,9 @@ noise = Noise()
 
 #temperature, pressure, humidity, light, noise level, gas sensors data 
 while True:
+
+    logging.info(" Sensors data loop ")
+
     temperature = bme280.get_temperature()
     pressure = bme280.get_pressure()
     humidity = bme280.get_humidity()
@@ -44,12 +47,4 @@ while True:
     Relative humidity: {:05.2f} %
     """.format(temperature, pressure, humidity))
 
-    logging.info("""Light: {:05.02f} Lux
-    """.format(lux))
-
-    logging.info("""Amps: {:05.02f} Lux
-    """.format(amp))
-
-    logging.info(readings)
-
-    time.sleep(3)
+    time.sleep(1)
