@@ -56,4 +56,6 @@ while True:
     logging.info("""Amps: {:05.02f} Lux
     """.format(amp))
 
+    logging.info(readings)
+
     time.sleep(3)
