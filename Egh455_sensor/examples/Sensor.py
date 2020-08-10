@@ -50,4 +50,10 @@ while True:
     Relative humidity: {:05.2f} %
     """.format(temperature, pressure, humidity))
 
-    time.sleep(1)
+    logging.info("""Light: {:05.02f} Lux
+    """.format(lux))
+
+    logging.info("""Amps: {:05.02f} Lux
+    """.format(amp))
+
+    time.sleep(3)
