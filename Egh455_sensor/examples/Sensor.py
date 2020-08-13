@@ -1,4 +1,7 @@
+
 import time
+import math
+
 from bme280 import BME280
 import ST7735
 from PIL import Image, ImageDraw
