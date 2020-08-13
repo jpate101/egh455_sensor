@@ -70,6 +70,11 @@ while True:
     logging.info("""Amps: {:05.02f} Amps
     """.format(amp))
 
-    logging.info(readings)
+    #logging.info(readings)
+    logging.info("""
+    carbon monoxide: {:05.2f} ppm
+    nitrogen dioxide: {:05.2f} ppm
+    ammonia: {:05.2f} ppm
+    """.format(readings.reducing, readings.oxidising, readings.nh3))
 
     time.sleep(3)
