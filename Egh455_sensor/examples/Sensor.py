@@ -66,7 +66,7 @@ while True:
 
     #readings.reducing = math.pow(10, math.log10(readings.reducing/158115.24))
 
-    readings.reducing = math.pow(10, -1.25 * math.log10(1) + 0.64) #4.5
+    readings.reducing = math.pow(10, -1.26 * math.log10(1) + 0.64) #4.5
     readings.oxidising = math.pow(10, math.log10(1) - 0.8129)#.15
 
     logging.info("""
