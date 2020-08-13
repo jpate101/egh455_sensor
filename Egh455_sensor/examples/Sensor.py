@@ -20,7 +20,7 @@ except ImportError:
     import ltr559
 
 logging.basicConfig(
-    format='%(asctime)s.%(msecs)03d %(levelname)-8s %(message)s',
+    format='%(message)s',
     level=logging.INFO,
     datefmt='%Y-%m-%d %H:%M:%S')
 
