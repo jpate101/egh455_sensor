@@ -65,9 +65,9 @@ while True:
     #nh3_in_ppm = math.pow(10, -1.8 * math.log10(nh3_rs/nh3_r0) - 0.163)
 
     # rs/ro match graph
-    readings.reducing = math.pow(10, -1.25 * math.log10(.01) + 0.64) #4.5
-    readings.oxidising = math.pow(10, math.log10(1) - 0.8129)#.15
-    readings.nh3 = math.pow(10, -1.8 * math.log10(1) - 0.163)
+    readings.reducing = math.pow(10, -1.25 * math.log10(readings.reducing/158115.24) + 0.64) #4.5
+    #readings.oxidising = math.pow(10, math.log10(1) - 0.8129)#.15
+    #readings.nh3 = math.pow(10, -1.8 * math.log10(1) - 0.163)
 
     logging.info("""
     Temperature: {:05.2f} *C
