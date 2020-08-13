@@ -41,7 +41,7 @@ noise = Noise()
 #temperature, pressure, humidity, light, noise level, gas sensors data 
 while True:
 
-    logging.info(" \n\nSensors data loop \n\n")
+    logging.info(" \nSensors data loop")
 
     temperature = bme280.get_temperature()
     pressure = bme280.get_pressure()
@@ -64,7 +64,7 @@ while True:
     #oxi_in_ppm = math.pow(10, math.log10(oxi_rs/oxi_r0) - 0.8129)
     #nh3_in_ppm = math.pow(10, -1.8 * math.log10(nh3_rs/nh3_r0) - 0.163)
 
-    #readings.reducing = math.pow(10, -1.25 * math.log10(readings.reducing/red_r0) + 0.64)
+    readings.reducing = math.pow(10, -1.25 * math.log10(readings.reducing/8000) + 0.64)
 
     logging.info("""
     Temperature: {:05.2f} *C
