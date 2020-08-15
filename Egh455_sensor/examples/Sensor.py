@@ -50,14 +50,14 @@ VO_CO = 0
 VO_No2 = 0
 VO_amm = 0
 logging.info(" \ndetermine baseline Vo(clean air) values")
-for x in range(30):
+for x in range(50):
     readings = gas.read_all()
     VO_CO += readings.reducing
     VO_No2 += readings.oxidising
     VO_amm += readings.nh3
-VO_CO = VO_CO/30
-VO_No2 = VO_No2/30
-VO_amm = VO_amm/30
+VO_CO = VO_CO/50
+VO_No2 = VO_No2/50
+VO_amm = VO_amm/50
 #temperature, pressure, humidity, light, noise level, gas sensors data 
 while True:
 
