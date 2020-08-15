@@ -1,6 +1,7 @@
 
 import time
 import math
+import json
 
 from bme280 import BME280
 import ST7735
@@ -52,6 +53,7 @@ VO_amm = 0
 logging.info(" \ndetermine baseline Vo(clean air) values")
 for x in range(50):
     readings = gas.read_all()
+    time.sleep(.01)
     VO_CO += readings.reducing
     VO_No2 += readings.oxidising
     VO_amm += readings.nh3
@@ -107,3 +109,13 @@ while True:
     """.format(CO, No2, amm))
 
     time.sleep(3)
+    
+    #data = {}
+    #data['people'] = []
+    #data['people'].append({
+    #'name': 'Scott',
+    #'website': 'stackabuse.com',
+    #'from': 'Nebraska'
+    #})
+    #with open('data.txt', 'w') as outfile:
+    #json.dump(data, outfile)
