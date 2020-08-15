@@ -61,6 +61,7 @@ VO_CO = VO_CO/50
 VO_No2 = VO_No2/50
 VO_amm = VO_amm/50
 #temperature, pressure, humidity, light, noise level, gas sensors data 
+log_count = 0
 while True:
 
     logging.info(" \nSensors data loop")
@@ -108,14 +109,17 @@ while True:
     ammonia: {:05.2f} ppm
     """.format(CO, No2, amm))
 
-    time.sleep(3)
     
-    #data = {}
-    #data['people'] = []
-    #data['people'].append({
-    #'name': 'Scott',
-    #'website': 'stackabuse.com',
-    #'from': 'Nebraska'
-    #})
-    #with open('data.txt', 'w') as outfile:
-    #json.dump(data, outfile)
+    
+    data = {}
+    data['SensorData'] = []
+    data['SensorData'].append({
+    'C0': CO,
+    'No2': No2,
+    'ammonia': amm
+    })
+    with open('Sensor_data_file/data'+log_count+'.json', 'w') as outfile:
+        json.dump(data, outfile)
+    log_count += 1
+    
+    time.sleep(5)
