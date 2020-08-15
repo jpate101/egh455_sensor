@@ -121,5 +121,6 @@ while True:
     with open('Sensor_data_file/data'+log_count+'.json', 'w') as outfile:
         json.dump(data, outfile)
     log_count += 1
-    
+
     time.sleep(5)
+    #
