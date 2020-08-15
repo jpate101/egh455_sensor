@@ -43,12 +43,13 @@ logging.info(" \nSensors warmup period (5 mins)")
 for x in range(5):
     logging.info(" \n1 min as passed")
     readings = gas.read_all()
-    wait(60)
+    time.sleep(3)
 
 #determine baseline Vo(clean air) values  
 VO_CO = 0
 VO_No2 = 0
 VO_amm = 0
+logging.info(" \ndetermine baseline Vo(clean air) values")
 for x in range(30):
     readings = gas.read_all()
     VO_CO += readings.reducing
