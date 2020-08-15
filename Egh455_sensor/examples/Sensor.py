@@ -38,6 +38,25 @@ bus = SMBus(1)
 bme280 = BME280(i2c_dev=bus)
 noise = Noise()
 
+#sensor warm up   
+logging.info(" \nSensors warmup period (5 mins)")
+for x in range(5):
+    logging.info(" \n1 min as passed")
+    readings = gas.read_all()
+    wait(60)
+
+#determine baseline Vo(clean air) values  
+VO_CO = 0
+VO_No2 = 0
+VO_amm = 0
+for x in range(30):
+    readings = gas.read_all()
+    VO_CO += readings.reducing
+    VO_No2 += readings.oxidising
+    VO_amm += readings.nh3
+VO_CO = VO_CO/30
+VO_No2 = VO_CO/30
+VO_amm = VO_CO/30
 #temperature, pressure, humidity, light, noise level, gas sensors data 
 while True:
 
@@ -53,21 +72,17 @@ while True:
     #convert readings
 
     ###
-    #Because each group of gases could be a mix of different gases, it's not possible to single
-    #out any one gas specifically or to quantify their levels precisely, so the best way to 
+    # Because each group of gases could be a mix of different gases, it's not possible to single
+    # out any one gas specifically or to quantify their levels precisely, so the best way to 
     # interpret the data is to take readings until they stabilise, set a baseline, and then look 
     # for changes relative to that baseline. This gives you a rough idea of whether the 
     # air quality is increasing or decreasing.
     ###
 
-    #red_in_ppm = math.pow(10, -1.25 * math.log10(red_rs/red_r0) + 0.64)
-    #oxi_in_ppm = math.pow(10, math.log10(oxi_rs/oxi_r0) - 0.8129)
-    #nh3_in_ppm = math.pow(10, -1.8 * math.log10(nh3_rs/nh3_r0) - 0.163)
-
     # rs/ro match graph
-    #readings.reducing = math.pow(10, -1.25 * math.log10(readings.reducing/1) + 0.64) 
-    #readings.oxidising = math.pow(10, math.log10(readings.oxidising/1) - 0.8129)
-    #readings.nh3 = math.pow(10, -1.8 * math.log10(readings.nh3/1) - 0.163)
+    readings.reducing = math.pow(10, -1.25 * math.log10(readings.reducing/VO_CO) + 0.64) 
+    readings.oxidising = math.pow(10, math.log10(readings.oxidising/VO_No2) - 0.8129)
+    readings.nh3 = math.pow(10, -1.8 * math.log10(readings.nh3/VO_amm) - 0.163)
 
     logging.info("""
     Temperature: {:05.2f} *C
