@@ -56,8 +56,8 @@ for x in range(30):
     VO_No2 += readings.oxidising
     VO_amm += readings.nh3
 VO_CO = VO_CO/30
-VO_No2 = VO_CO/30
-VO_amm = VO_CO/30
+VO_No2 = VO_No2/30
+VO_amm = VO_amm/30
 #temperature, pressure, humidity, light, noise level, gas sensors data 
 while True:
 
@@ -81,9 +81,9 @@ while True:
     ###
 
     # rs/ro match graph
-    readings.reducing = math.pow(10, -1.25 * math.log10(readings.reducing/VO_CO) + 0.64) 
-    readings.oxidising = math.pow(10, math.log10(readings.oxidising/VO_No2) - 0.8129)
-    readings.nh3 = math.pow(10, -1.8 * math.log10(readings.nh3/VO_amm) - 0.163)
+    CO = math.pow(10, -1.25 * math.log10(readings.reducing/VO_CO) + 0.64) 
+    No2 = math.pow(10, math.log10(readings.oxidising/VO_No2) - 0.8129)
+    amm = math.pow(10, -1.8 * math.log10(readings.nh3/VO_amm) - 0.163)
 
     logging.info("""
     Temperature: {:05.2f} *C
@@ -104,6 +104,6 @@ while True:
     C0: {:05.2f} ppm
     No2: {:05.2f} ppm
     ammonia: {:05.2f} ppm
-    """.format(readings.reducing, readings.oxidising, readings.nh3))
+    """.format(CO, No2, amm))
 
     time.sleep(3)
