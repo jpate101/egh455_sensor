@@ -99,7 +99,7 @@ while True:
     """.format(lux))
 
     logging.info("""
-    Amps: {:05.02f} Amps
+    NoiseLevel: {:05.02f} Amps
     """.format(amp))
 
     #logging.info(readings)
@@ -114,6 +114,13 @@ while True:
     data = {}
     data['SensorData'] = []
     data['SensorData'].append({
+        
+    'Temperature': temperature,
+    'Pressure': pressure,
+    'Humidity': humidity,
+    'Light': lux,
+    'NoiseLevel': amp,
+
     'C0': CO,
     'No2': No2,
     'ammonia': amm
