@@ -57,9 +57,9 @@ for x in range(50):
     readings = gas.read_all()
     time.sleep(.01)
 
-    VO_RED =+ readings.reducing
-    VO_OX =+ readings.oxidising
-    VO_NH3 =+ readings.nh3
+    VO_RED = VO_RED + readings.reducing
+    VO_OX = VO_OX + readings.oxidising
+    VO_NH3 = VO_NH3 + readings.nh3
 
 
 VO_RED = VO_RED/50
