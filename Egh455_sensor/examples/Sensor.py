@@ -81,8 +81,9 @@ while True:
 
     #
     vfinal = 12 - amp
-    dbFS = 120 + 20*math.log10(abs(vfinal/8191))
+    dbFS = 120 + 20*math.log10(abs(amp/8191))
     res = 120 + dbFS
+
     logging.info("""
     NoiseLevel: {:05.02f} Amps
     """.format(dbFS))
