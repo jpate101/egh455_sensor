@@ -50,16 +50,38 @@ for x in range(5):
 VO_CO = 0
 VO_No2 = 0
 VO_amm = 0
+VO_eth = 0
+VO_H = 0
+
+VO_RED = 0
+VO_OX = 0
+VO_NH3 = 0
+
 logging.info(" \ndetermine baseline Vo(clean air) values")
 for x in range(50):
     readings = gas.read_all()
     time.sleep(.01)
-    VO_CO += readings.reducing
-    VO_No2 += readings.oxidising
-    VO_amm += readings.nh3
-VO_CO = VO_CO/50
-VO_No2 = VO_No2/50
-VO_amm = VO_amm/50
+
+    VO_RED =+ readings.reducing
+    VO_OX =+ readings.oxidising
+    VO_NH3 =+ readings.nh3
+
+
+    #VO_CO += readings.reducing
+    #VO_No2 += readings.oxidising
+    #VO_amm += readings.nh3
+    #VO_eth += readings.reducing
+    #VO_H += readings.nh3
+
+#VO_CO = VO_CO/50
+#VO_No2 = VO_No2/50
+#VO_amm = VO_amm/50
+#VO_eth = VO_eth/50
+
+VO_RED = VO_RED/50
+VO_OX = VO_OX/50
+VO_NH3 = VO_NH3/50
+
 #temperature, pressure, humidity, light, noise level, gas sensors data 
 log_count = 0
 while True:
@@ -84,9 +106,16 @@ while True:
     ###
 
     # rs/ro match graph
-    CO = math.pow(10, -1.25 * math.log10(readings.reducing/VO_CO) + 0.64) 
-    No2 = math.pow(10, math.log10(readings.oxidising/VO_No2) - 0.8129)
-    amm = math.pow(10, -1.8 * math.log10(readings.nh3/VO_amm) - 0.163)
+    CO = math.pow(10, -1.25 * math.log10(readings.reducing/VO_RED) + 0.64) 
+    No2 = math.pow(10, math.log10(readings.oxidising/VO_OX) - 0.8129)
+    amm = math.pow(10, -1.8 * math.log10(readings.nh3/VO_NH3) - 0.163)
+    C2H5OH = math.pow(10, -1.62 * math.log10(readings.reducing/VO_RED) + 0.024)#ethanol
+    H = math.pow(10, -3.6 * math.log10(readings.nh3/VO_NH3) + .8)
+    CH4 = math.pow(10, -2.2 * math.log10(readings.reducing/VO_RED) + 3)#meth
+    C3H8 = math.pow(10, -1.5 * math.log10(readings.nh3/VO_NH3) + 2.845)#only accurate to 3000ppm=.4
+    #c = pow(ratio1, -1.8) * 0.73;H
+    #pow(ratio1, -4.363) * 630.957;Methane
+    #pow(ratio0, -2.518) * 570.164;propane
 
     logging.info("""
     Temperature: {:05.2f} *C
@@ -107,14 +136,18 @@ while True:
     C0: {:05.2f} ppm
     No2: {:05.2f} ppm
     ammonia: {:05.2f} ppm
-    """.format(CO, No2, amm))
+    C2H5OH: {:05.2f} ppm
+    H: {:05.2f} ppm
+    CH4: {:05.2f} ppm
+    C3H8: {:05.2f} ppm
+    """.format(CO, No2, amm,C2H5OH, H, CH4,C3H8))
 
     
     
     data = {}
     data['SensorData'] = []
     data['SensorData'].append({
-        
+
     'Temperature': temperature,
     'Pressure': pressure,
     'Humidity': humidity,
@@ -123,10 +156,14 @@ while True:
 
     'C0': CO,
     'No2': No2,
-    'ammonia': amm
+    'ammonia': amm,
+    'ethanol': C2H5OH,
+    'methane': CH4,
+    'C3H8':C3H8
     })
     with open('Sensor_data_file/data'+str(log_count)+'.json', 'w') as outfile:
         json.dump(data, outfile)
+    
     log_count += 1
 
     time.sleep(5)
