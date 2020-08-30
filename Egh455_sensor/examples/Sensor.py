@@ -85,7 +85,7 @@ while True:
     #res = 120 + dbFS
     #test2 = noise.get_amplitude_at_frequency_range(0,5000)#https://github.com/pimoroni/enviroplus-python/blob/master/library/enviroplus/noise.py
     #maybe 
-    #recording = self._record()
+    recording = noise._record()
     #magnitude = numpy.abs(numpy.fft.rfft(recording[:, 0], n=self.sample_rate))
     #return numpy.mean(magnitude[start:end])#replace mean with max
 
