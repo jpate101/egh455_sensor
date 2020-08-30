@@ -88,7 +88,7 @@ while True:
     #maybe 
     recording = noise._record()
     magnitude = numpy.abs(recording[:, 0])
-    test2 = numpy.max(magnitude[0:10000])
+    test2 = numpy.max(magnitude[:])
     #return numpy.mean(magnitude[start:end])#replace mean with max
 
 
