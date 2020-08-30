@@ -47,11 +47,6 @@ for x in range(2):
     logging.info(" \n1 min as passed")
 
 #determine baseline Vo(clean air) values  
-VO_CO = 0
-VO_No2 = 0
-VO_amm = 0
-VO_eth = 0
-VO_H = 0
 
 VO_RED = 0
 VO_OX = 0
@@ -66,17 +61,6 @@ for x in range(50):
     VO_OX =+ readings.oxidising
     VO_NH3 =+ readings.nh3
 
-
-    #VO_CO += readings.reducing
-    #VO_No2 += readings.oxidising
-    #VO_amm += readings.nh3
-    #VO_eth += readings.reducing
-    #VO_H += readings.nh3
-
-#VO_CO = VO_CO/50
-#VO_No2 = VO_No2/50
-#VO_amm = VO_amm/50
-#VO_eth = VO_eth/50
 
 VO_RED = VO_RED/50
 VO_OX = VO_OX/50
@@ -130,6 +114,17 @@ while True:
     logging.info("""
     NoiseLevel: {:05.02f} Amps
     """.format(amp))
+
+    #resistance values 
+    logging.info("""
+    VO red: {:05.2f} ohms
+    red: {:05.2f} ohms
+    VO ox: {:05.2f} ohms
+    ox: {:05.2f} ohms
+    VO nh3: {:05.2f} ohms
+    nh3: {:05.2f} ohms
+    """.format(VO_RED,readings.reducing,VO_OX,readings.oxidising,VO_NH3,readings.nh3))
+
 
     #logging.info(readings)
     logging.info("""
