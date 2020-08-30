@@ -101,6 +101,24 @@ while True:
     #pow(ratio1, -4.363) * 630.957;Methane
     #pow(ratio0, -2.518) * 570.164;propane
 
+    #cut undetechable levels out for gas 
+
+    if CO < 1 or CO > 1000:
+        CO = 0
+    if No2 < .05 or No2 > 10:
+        No2 = 0
+    if C2H5OH < 10 or C2H5OH > 500:
+        C2H5OH = 0
+    if H < 1 or H > 1000:
+        H = 0
+    if amm < 1 or amm > 500:
+        amm = 0
+    if CH4 < 1000:
+        CH4 = 0
+    if C3H8 < 1000:
+        C3H8 = 0
+
+
     logging.info("""
     Temperature: {:05.2f} *C
     Pressure: {:05.2f} hPa
