@@ -1,6 +1,6 @@
 
 import time
-import math
+import math 
 import json
 
 from bme280 import BME280
@@ -81,7 +81,7 @@ while True:
 
     #
     vfinal = amp - 12
-    dbFS = 120 + 20*log10(vfinal/8191)
+    dbFS = 120 + 20*math.log10(vfinal/8191)
     res = 120 + dbFS
     logging.info("""
     NoiseLevel: {:05.02f} Amps
