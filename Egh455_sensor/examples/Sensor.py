@@ -90,13 +90,13 @@ while True:
     ###
 
     # rs/ro match graph
-    CO = math.pow(10, -1.25 * math.log10(readings.reducing/VO_RED) + 0.64) 
-    No2 = math.pow(10, math.log10(readings.oxidising/VO_OX) - 0.8129)
-    amm = math.pow(10, -1.8 * math.log10(readings.nh3/VO_NH3) - 0.163)
-    C2H5OH = math.pow(10, -1.62 * math.log10(readings.reducing/VO_RED) + 0.024)#ethanol
-    H = math.pow(10, -3.6 * math.log10(readings.nh3/VO_NH3) + .8)
-    CH4 = math.pow(10, -4.5 * math.log10(readings.reducing/VO_RED) + 2.65)#meth
-    C3H8 = math.pow(10, -1.5 * math.log10(readings.nh3/VO_NH3) + 2.845)#only accurate to 3000ppm=.4
+    CO = math.pow(10, -1.15 * math.log10(readings.reducing/VO_RED) + 0.64)  #done
+    No2 = math.pow(10, math.log10(readings.oxidising/VO_OX) - 0.8129)          #done 
+    amm = math.pow(10, -1.8 * math.log10(readings.nh3/VO_NH3) - 0.163)          #done 
+    C2H5OH = math.pow(10, -1.62 * math.log10(readings.reducing/VO_RED) +0.134)#ethanol #done 
+    H = math.pow(10, -2.6 * math.log10(readings.nh3/VO_NH3) + .8) #done
+    CH4 = math.pow(10, -4.7 * math.log10(readings.reducing/VO_RED) + 2.65)#meth                     #done 
+    C3H8 = math.pow(10, -2.5 * math.log10(readings.nh3/VO_NH3) + 2.845)#done 
     #c = pow(ratio1, -1.8) * 0.73;H
     #pow(ratio1, -4.363) * 630.957;Methane
     #pow(ratio0, -2.518) * 570.164;propane
