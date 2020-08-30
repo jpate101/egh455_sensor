@@ -83,14 +83,19 @@ while True:
     #vfinal = 12 - amp
     #dbFS = 120 + 20*math.log10(abs(amp/8191))
     #res = 120 + dbFS
-    test2 = noise.get_amplitude_at_frequency_range(0,5000)
+    #test2 = noise.get_amplitude_at_frequency_range(0,5000)#https://github.com/pimoroni/enviroplus-python/blob/master/library/enviroplus/noise.py
+    #maybe 
+    #recording = self._record()
+    #magnitude = numpy.abs(numpy.fft.rfft(recording[:, 0], n=self.sample_rate))
+    #return numpy.mean(magnitude[start:end])#replace mean with max
+
+
     DB = math.pow(10, 3.6 * math.log10(amp) + 3.35)
     if DB  > 120:#overload point 
         DB = 120
     logging.info("""
     NoiseLevel: {:05.02f} DB
-    test2: {:05.02f} DB
-    """.format(DB,test2))
+    """.format(DB))
     #.reducing oxidising nh3  carbon monoxide (reducing), nitrogen dioxide (oxidising), and ammonia (NH3)
     #convert readings
 
