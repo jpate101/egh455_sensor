@@ -2,6 +2,7 @@
 import time
 import math 
 import json
+import numpy
 
 from bme280 import BME280
 import ST7735
@@ -86,7 +87,8 @@ while True:
     #test2 = noise.get_amplitude_at_frequency_range(0,5000)#https://github.com/pimoroni/enviroplus-python/blob/master/library/enviroplus/noise.py
     #maybe 
     recording = noise._record()
-    #magnitude = numpy.abs(numpy.fft.rfft(recording[:, 0], n=self.sample_rate))
+    magnitude = numpy.abs(numpy.fft.rfft(recording[:, 0], n=noise.self.sample_rate))
+    test2 = numpy.max(magnitude[0:10000])
     #return numpy.mean(magnitude[start:end])#replace mean with max
 
 
@@ -95,7 +97,8 @@ while True:
         DB = 120
     logging.info("""
     NoiseLevel: {:05.02f} DB
-    """.format(DB))
+    Test2: {:05.02f} DB
+    """.format(DB,test2))
     #.reducing oxidising nh3  carbon monoxide (reducing), nitrogen dioxide (oxidising), and ammonia (NH3)
     #convert readings
 
