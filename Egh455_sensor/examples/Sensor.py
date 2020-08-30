@@ -80,13 +80,13 @@ while True:
     readings = gas.read_all()
 
     #
-    vfinal = 12 - amp
-    dbFS = 120 + 20*math.log10(abs(amp/8191))
-    res = 120 + dbFS
-
+    #vfinal = 12 - amp
+    #dbFS = 120 + 20*math.log10(abs(amp/8191))
+    #res = 120 + dbFS
+    res = power(10, 3.7 * log10(amp) + 1.4)
     logging.info("""
     NoiseLevel: {:05.02f} Amps
-    """.format(dbFS))
+    """.format(res))
     #.reducing oxidising nh3  carbon monoxide (reducing), nitrogen dioxide (oxidising), and ammonia (NH3)
     #convert readings
 
