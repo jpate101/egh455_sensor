@@ -92,7 +92,7 @@ while True:
     #return numpy.mean(magnitude[start:end])#replace mean with max
 
 
-    DB = math.pow(10, 3.6 * math.log10(amp) + 3.35)
+    DB = math.pow(10, 3.6 * math.log10(mid) + 3.35)
     if DB  > 120:#overload point 
         DB = 120
     logging.info("""
