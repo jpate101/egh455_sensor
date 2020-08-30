@@ -40,8 +40,8 @@ bme280 = BME280(i2c_dev=bus)
 noise = Noise()
 
 #sensor warm up   
-logging.info(" \nSensors warmup period (5 mins) - currently 2")
-for x in range(2):
+logging.info(" \nSensors warmup period (5 mins) - currently 1")
+for x in range(1):
     readings = gas.read_all()
     time.sleep(60)
     logging.info(" \n1 min as passed")
@@ -188,5 +188,5 @@ while True:
     
     log_count += 1
 
-    time.sleep(5)
+    time.sleep(2)
     #
