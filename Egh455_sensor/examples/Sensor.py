@@ -80,9 +80,9 @@ while True:
     readings = gas.read_all()
 
     #
-    vfinal = amp - 1e12
-    dbFS = 20*math.log10(vfinal/0x1ffff)
-	res = 120 + dbFS
+    vfinal = amp - 12
+    dbFS = 120 + 20*math.log10(vfinal/8191)
+    res = 120 + dbFS
     logging.info("""
     NoiseLevel: {:05.02f} Amps
     """.format(res))
@@ -120,7 +120,7 @@ while True:
     if H < 1 or H > 1000:
         H = 0
     if amm < 1 or amm > 500:
-        #amm = 0
+        amm = 0
     if CH4 < 1000:
         CH4 = 0
     if C3H8 < 1000:
