@@ -83,10 +83,14 @@ while True:
     #vfinal = 12 - amp
     #dbFS = 120 + 20*math.log10(abs(amp/8191))
     #res = 120 + dbFS
+    test2 = noise.get_amplitudes_at_frequency_ranges(0,10000)
     DB = math.pow(10, 3.6 * math.log10(amp) + 3.35)
+    if DB  > 120:#overload point 
+        DB = 120
     logging.info("""
     NoiseLevel: {:05.02f} DB
-    """.format(DB))
+    test2: {:05.02f} DB
+    """.format(DB,test2))
     #.reducing oxidising nh3  carbon monoxide (reducing), nitrogen dioxide (oxidising), and ammonia (NH3)
     #convert readings
 
