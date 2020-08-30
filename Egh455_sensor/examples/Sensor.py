@@ -85,7 +85,7 @@ while True:
     res = 120 + dbFS
     logging.info("""
     NoiseLevel: {:05.02f} Amps
-    """.format(res))
+    """.format(dbFS))
     #.reducing oxidising nh3  carbon monoxide (reducing), nitrogen dioxide (oxidising), and ammonia (NH3)
     #convert readings
 
