@@ -83,10 +83,10 @@ while True:
     #vfinal = 12 - amp
     #dbFS = 120 + 20*math.log10(abs(amp/8191))
     #res = 120 + dbFS
-    res = math.pow(10, 3.6 * math.log10(amp) + 3.35)
+    DB = math.pow(10, 3.6 * math.log10(amp) + 3.35)
     logging.info("""
-    NoiseLevel: {:05.02f} Amps
-    """.format(res))
+    NoiseLevel: {:05.02f} DB
+    """.format(DB))
     #.reducing oxidising nh3  carbon monoxide (reducing), nitrogen dioxide (oxidising), and ammonia (NH3)
     #convert readings
 
@@ -175,6 +175,7 @@ while True:
     'Humidity': humidity,
     'Light': lux,
     'NoiseLevel': amp,
+    'NoiseLevel in DB': DB,
 
     'C0': CO,
     'No2': No2,
