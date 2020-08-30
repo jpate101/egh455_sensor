@@ -78,6 +78,14 @@ while True:
     lux = ltr559.get_lux()
     low, mid, high, amp = noise.get_noise_profile()
     readings = gas.read_all()
+
+    #
+    vfinal = amp - 1e12
+    dbFS = 20*math.log10(vfinal/0x1ffff)
+	res = 120 + dbFS
+    logging.info("""
+    NoiseLevel: {:05.02f} Amps
+    """.format(res))
     #.reducing oxidising nh3  carbon monoxide (reducing), nitrogen dioxide (oxidising), and ammonia (NH3)
     #convert readings
 
