@@ -40,8 +40,8 @@ bme280 = BME280(i2c_dev=bus)
 noise = Noise()
 
 #sensor warm up   
-logging.info(" \nSensors warmup period (5 mins)")
-for x in range(5):
+logging.info(" \nSensors warmup period (5 mins) - currently 2")
+for x in range(2):
     readings = gas.read_all()
     time.sleep(60)
     logging.info(" \n1 min as passed")
@@ -140,7 +140,7 @@ while True:
     H: {:05.2f} ppm
     CH4: {:05.2f} ppm
     C3H8: {:05.2f} ppm
-    """.format(CO, No2, amm,C2H5OH, H, CH4,C3H8))
+    """.format(CO,No2,amm,C2H5OH,H,CH4,C3H8))
 
     
     
@@ -156,8 +156,9 @@ while True:
 
     'C0': CO,
     'No2': No2,
-    'ammonia': amm,
-    'ethanol': C2H5OH,
+    'amm': amm,
+    'C2H50H': C2H5OH,
+    'H': H,
     'methane': CH4,
     'C3H8':C3H8
     })
