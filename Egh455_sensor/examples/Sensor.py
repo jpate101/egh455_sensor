@@ -111,8 +111,8 @@ while True:
         C2H5OH = 0
     if H < 1 or H > 1000:
         H = 0
-    if amm < 1 or amm > 500:
-        amm = 0
+    #if amm < 1 or amm > 500:
+        #amm = 0
     if CH4 < 1000:
         CH4 = 0
     if C3H8 < 1000:
