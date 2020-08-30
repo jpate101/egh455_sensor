@@ -88,7 +88,7 @@ while True:
     #maybe 
     recording = noise._record()
     magnitude = numpy.abs(numpy.fft.rfft(recording[:, 0], n=noise.sample_rate))
-    test2 = numpy.max(magnitude[0:10000])
+    test2 = numpy.max(magnitude[0:5000])
     #return numpy.mean(magnitude[start:end])#replace mean with max
 
 
