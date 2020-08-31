@@ -3,6 +3,7 @@ import time
 import math 
 import json
 import numpy
+import sounddevice
 
 from bme280 import BME280
 import ST7735
@@ -84,6 +85,17 @@ while True:
     #https://github.com/TheHWcave/Enviro-Plus/blob/master/review-part2/micro_SPL.py review example
     #test2 = noise.get_amplitude_at_frequency_range(0,5000)#https://github.com/pimoroni/enviroplus-python/blob/master/library/enviroplus/noise.py
     #maybe 
+
+    test3 = sounddevice.rec(
+            int(1 * 16000),
+            samplerate= 16000,
+            blocking=True,
+            channels=1,
+            dtype='float64'
+        )
+    test3 = numpy.abs(test3[:])
+    test3 = numpy.max(test3[:])
+
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
     test2 = numpy.max(magnitude[:])
@@ -202,7 +214,8 @@ while True:
     logging.info("""
     NoiseLevel: {:05.02f} DB
     Test2: {:05.02f} DB
-    """.format(DB,test2))
+    Test3: {:05.02f} DB
+    """.format(DB,test2,test3))
 
 
 
