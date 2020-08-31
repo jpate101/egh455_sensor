@@ -94,7 +94,7 @@ while True:
             dtype='float64'
         )
     test3 = numpy.abs(test3[:])
-    test3 = numpy.mean(test3[:])
+    test3 = numpy.max(test3[:])
 
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
@@ -124,10 +124,6 @@ while True:
     H = math.pow(10, -2.6 * math.log10(readings.nh3/VO_NH3) + .8) #done
     CH4 = math.pow(10, -4.7 * math.log10(readings.reducing/VO_RED) + 2.65)#meth                     #done 
     C3H8 = math.pow(10, -2.5 * math.log10(readings.nh3/VO_NH3) + 2.845)#done 
-    #c = pow(ratio1, -1.8) * 0.73;H
-    #pow(ratio1, -4.363) * 630.957;Methane
-    #pow(ratio0, -2.518) * 570.164;propane
-
     #cut undetechable levels out for gas 
 
     if CO < 1 or CO > 1000:
@@ -214,7 +210,7 @@ while True:
     logging.info("""
     NoiseLevel: {:05.02f} DB
     Test2: {:05.02f} DB
-    Test3: {:05.02f} DB
+    Test3: {:05.05f} DB
     """.format(DB,test2,test3))
 
 
