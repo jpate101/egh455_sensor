@@ -94,7 +94,7 @@ while True:
             dtype='float64'
         )
     test3 = numpy.abs(test3[:])
-    test3 = numpy.max(test3[:])
+    test3 = numpy.mean(test3[:])
 
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
