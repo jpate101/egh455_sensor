@@ -69,6 +69,8 @@ VO_OX = VO_OX/50
 VO_NH3 = VO_NH3/50
 
 #temperature, pressure, humidity, light, noise level, gas sensors data 
+
+#test
 log_count = 0
 while True:
 
@@ -94,7 +96,10 @@ while True:
             dtype='float64'
         )
     test3 = numpy.abs(test3[:])
-    test3 = numpy.max(test3[:])
+    test3 = numpy.mean(test3[:])
+
+    test4 = 20*math.log10(test3/.00015) 
+    test5 = 20*math.log10(test3/.006) 
 
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
@@ -200,8 +205,10 @@ while True:
     logging.info("""
     NoiseLevel: {:05.02f} DB
     Test2: {:05.02f} DB
-    Test3: {:05.05f} DB
-    """.format(DB,test2,test3))
+    Test3: {:05.08f} DB
+    Test4: {:05.08f} DB
+    Test5: {:05.08f} DB
+    """.format(DB,test2,test3,test4,test5))
 
 
 
