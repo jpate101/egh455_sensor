@@ -88,13 +88,21 @@ while True:
     #test2 = noise.get_amplitude_at_frequency_range(0,5000)#https://github.com/pimoroni/enviroplus-python/blob/master/library/enviroplus/noise.py
     #maybe 
 
+    #test3 = sounddevice.rec(
+     #       int(2 * 16000),
+      #      samplerate= 16000,
+       #     blocking=True,
+        #    channels=1,
+         #   dtype='float64'
+        #)
     test3 = sounddevice.rec(
-            int(2 * 16000),
+            int(10),
             samplerate= 16000,
             blocking=True,
             channels=1,
             dtype='float64'
         )
+    test6 = test3
     test3 = numpy.abs(test3[:])
     test3 = numpy.max(test3[:])
     test4 = 20*math.log10(test3/.000003) 
@@ -208,6 +216,6 @@ while True:
     Test4: {:05.08f} DB
     Test5: {:05.08f} DB
     """.format(DB,test2,test3,test4,test5))
-
+    print(str(test6))
     time.sleep(2)
     #teest
