@@ -100,11 +100,12 @@ while True:
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
 
-    z = magnitude[-100:]
+    #z = magnitude[-100:]
+    z = numpy.argsort(magnitude)[-100:]
     print(str(len(z)))
     print(str((z)))
 
-    test2 = numpy.mean(z[:])
+    test2 = numpy.mean(magnitude[:])
     test3 = 65*math.log10((test2)/.03) 
     test4 = 20*math.log10((test2))+60 
     DB = math.pow(10, 3.6 * math.log10(mid) + 3.35)
