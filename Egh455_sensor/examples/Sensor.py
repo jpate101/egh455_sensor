@@ -103,7 +103,7 @@ while True:
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
     test2 = numpy.max(magnitude[:])
-    test3 = 65*math.log10((test3)/.03) 
+    test3 = 65*math.log10((test2)/.03) 
 
     DB = math.pow(10, 3.6 * math.log10(mid) + 3.35)
     if DB  > 120:#overload point 
