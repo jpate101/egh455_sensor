@@ -101,7 +101,7 @@ while True:
     magnitude = numpy.abs(recording[:])
 
     magnitude = magnitude[numpy.argsort(magnitude)[-10:]]
-
+    print(str(magnitude))
     test2 = numpy.mean(magnitude[:])
     test3 = 65*math.log10((test2)/.03) 
     test4 = 20*math.log10((test2))+60 
