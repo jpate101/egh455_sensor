@@ -68,10 +68,7 @@ VO_RED = VO_RED/50
 VO_OX = VO_OX/50
 VO_NH3 = VO_NH3/50
 
-#temperature, pressure, humidity, light, noise level, gas sensors data 
-
-#test
-log_count = 0
+log_count = 0#file count 
 while True:
 
     logging.info(" \nSensors data loop")
@@ -104,7 +101,7 @@ while True:
     magnitude = numpy.abs(recording[:])
     test2 = numpy.max(magnitude[:])
     test3 = 65*math.log10((test2)/.03) 
-
+    test4 = 20*math.log10((test2))+60 
     DB = math.pow(10, 3.6 * math.log10(mid) + 3.35)
     if DB  > 120:#overload point 
         DB = 120
@@ -206,6 +203,7 @@ while True:
     NoiseLevel: {:05.02f} DB
     Test2: {:05.02f} DB
     Test3: {:05.02f} DB
-    """.format(DB,test2,test3))
+    Test4: {:05.02f} DB
+    """.format(DB,test2,test3,test4))
     time.sleep(2)
     #teest
