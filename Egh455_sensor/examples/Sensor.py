@@ -100,7 +100,7 @@ while True:
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
 
-    magnitude[numpy.argsort(magnitude)[-1000:]]
+    magnitude[numpy.argsort(magnitude)[-10:]]
 
     test2 = numpy.mean(magnitude[:])
     test3 = 65*math.log10((test2)/.03) 
