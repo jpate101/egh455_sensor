@@ -99,6 +99,7 @@ while True:
     test3 = numpy.mean(test3[:])
 
     test4 = 20*math.log10(test3/.00015) 
+    test5 = 20*math.log10(test3/.006) 
 
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
@@ -215,7 +216,8 @@ while True:
     Test2: {:05.02f} DB
     Test3: {:05.05f} DB
     Test4: {:05.05f} DB
-    """.format(DB,test2,test3,test4))
+    Test5: {:05.05f} DB
+    """.format(DB,test2,test3,test4,test5))
 
 
 
