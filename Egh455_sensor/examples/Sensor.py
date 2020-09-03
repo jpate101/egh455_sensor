@@ -102,8 +102,10 @@ while True:
             channels=1,
             dtype='float64'
         )
-    test6 = test3
     test3 = numpy.abs(test3[:])
+
+    test6 = test3
+
     test3 = numpy.max(test3[:])
     test4 = 20*math.log10(test3/.000003) 
     test5 = 20*math.log10(test3/.006) 
