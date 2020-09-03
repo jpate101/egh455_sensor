@@ -102,7 +102,7 @@ while True:
 
     z = magnitude.argsort()[-100:]
     print(str(len(z)))
-    
+    print(str((z)))
 
     test2 = numpy.max(magnitude[:])
     test3 = 65*math.log10((test2)/.03) 
