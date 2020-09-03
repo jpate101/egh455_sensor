@@ -96,7 +96,7 @@ while True:
          #   dtype='float64'
         #)
     test3 = sounddevice.rec(
-            int(10),
+            int(16000*3),
             samplerate= 16000,
             blocking=True,
             channels=1,
@@ -107,7 +107,7 @@ while True:
     test6 = test3
 
     test3 = numpy.max(test3[:])
-    test4 = 20*math.log10(test3/.000003) 
+    test4 = 120 - 20*math.log10(test3/.000003) 
     test5 = 20*math.log10(test3/.006) 
 
     recording = noise._record()
