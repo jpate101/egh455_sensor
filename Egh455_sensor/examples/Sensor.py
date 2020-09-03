@@ -98,7 +98,7 @@ while True:
     test3 = numpy.abs(test3[:])
     test3 = numpy.mean(test3[:])
 
-    test4 = 20*math.log10(test3/.002) 
+    test4 = 20*math.log10(test3/.006) 
 
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
