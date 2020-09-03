@@ -214,9 +214,9 @@ while True:
     logging.info("""
     NoiseLevel: {:05.02f} DB
     Test2: {:05.02f} DB
-    Test3: {:05.05f} DB
-    Test4: {:05.05f} DB
-    Test5: {:05.05f} DB
+    Test3: {:05.08f} DB
+    Test4: {:05.08f} DB
+    Test5: {:05.08f} DB
     """.format(DB,test2,test3,test4,test5))
 
 
