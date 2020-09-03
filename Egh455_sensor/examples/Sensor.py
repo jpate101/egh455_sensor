@@ -96,7 +96,7 @@ while True:
             dtype='float64'
         )
     test3 = numpy.abs(test3[:])
-    test3 = numpy.max(test3[:])
+    test3 = numpy.mean(test3[:])
 
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
@@ -107,7 +107,6 @@ while True:
     DB = math.pow(10, 3.6 * math.log10(mid) + 3.35)
     if DB  > 120:#overload point 
         DB = 120
-    #.reducing oxidising nh3  carbon monoxide (reducing), nitrogen dioxide (oxidising), and ammonia (NH3)
     #convert readings
 
     ###
