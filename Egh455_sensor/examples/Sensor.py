@@ -103,6 +103,7 @@ while True:
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
     test2 = numpy.max(magnitude[:])
+    test3 = 65*math.log10((test3)/.03) 
 
     DB = math.pow(10, 3.6 * math.log10(mid) + 3.35)
     if DB  > 120:#overload point 
@@ -204,6 +205,7 @@ while True:
     logging.info("""
     NoiseLevel: {:05.02f} DB
     Test2: {:05.02f} DB
-    """.format(DB,test2))
+    Test3: {:05.02f} DB
+    """.format(DB,test2,test3))
     time.sleep(2)
     #teest
