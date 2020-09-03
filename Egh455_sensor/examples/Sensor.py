@@ -100,7 +100,7 @@ while True:
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
 
-    z = numpy.argsort(magnitude)[-10:]
+    z = numpy.argsort(magnitude)[10:]
     print(str(z))
 
     test2 = numpy.max(magnitude[:])
