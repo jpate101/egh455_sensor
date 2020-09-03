@@ -208,5 +208,6 @@ while True:
     Test3: {:05.02f} DB
     Test4: {:05.02f} DB
     """.format(DB,test2,test3,test4))
+    print(str(magnitude))
     time.sleep(2)
     #teest
