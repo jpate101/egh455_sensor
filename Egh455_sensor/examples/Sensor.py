@@ -101,8 +101,9 @@ while True:
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
 
-    z = -bottleneck.partition(-magnitude, 10)[:10]
+    z = np.argsort(magnitude)[-10:]
     print(str(z))
+
     test2 = numpy.max(magnitude[:])
     test3 = 65*math.log10((test2)/.03) 
     test4 = 20*math.log10((test2))+60 
