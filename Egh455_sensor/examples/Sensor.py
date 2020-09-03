@@ -99,30 +99,19 @@ while True:
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
     test2 = numpy.max(magnitude[:])
-    #return numpy.mean(magnitude[start:end])#replace mean with max
-
 
     DB = math.pow(10, 3.6 * math.log10(mid) + 3.35)
     if DB  > 120:#overload point 
         DB = 120
-    #.reducing oxidising nh3  carbon monoxide (reducing), nitrogen dioxide (oxidising), and ammonia (NH3)
+    
     #convert readings
-
-    ###
-    # Because each group of gases could be a mix of different gases, it's not possible to single
-    # out any one gas specifically or to quantify their levels precisely, so the best way to 
-    # interpret the data is to take readings until they stabilise, set a baseline, and then look 
-    # for changes relative to that baseline. This gives you a rough idea of whether the 
-    # air quality is increasing or decreasing.
-    ###
-
-    # rs/ro match graph
+    # using rs/ro match graph
     CO = math.pow(10, -1.15 * math.log10(readings.reducing/VO_RED) + 0.64)  #done
     No2 = math.pow(10, math.log10(readings.oxidising/VO_OX) - 0.8129)          #done 
     amm = math.pow(10, -1.8 * math.log10(readings.nh3/VO_NH3) - 0.163)          #done 
     C2H5OH = math.pow(10, -1.62 * math.log10(readings.reducing/VO_RED) +0.134)#ethanol #done 
     H = math.pow(10, -2.6 * math.log10(readings.nh3/VO_NH3) + .8) #done
-    CH4 = math.pow(10, -4.7 * math.log10(readings.reducing/VO_RED) + 2.65)#meth                     #done 
+    CH4 = math.pow(10, -4.7 * math.log10(readings.reducing/VO_RED) + 2.65)#meth  #done 
     C3H8 = math.pow(10, -2.5 * math.log10(readings.nh3/VO_NH3) + 2.845)#done 
     #cut undetechable levels out for gas 
 
@@ -188,6 +177,7 @@ while True:
     'Pressure': pressure,
     'Humidity': humidity,
     'Light': lux,
+    
     'NoiseLevel': amp,
     'NoiseLevel in DB': DB,
 
