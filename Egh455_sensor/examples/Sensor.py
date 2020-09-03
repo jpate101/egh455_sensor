@@ -104,7 +104,7 @@ while True:
         )
     test3 = numpy.abs(test3[:])
     test3 = numpy.max(test3[:])
-    test4 = 20*math.log10((test3).000002) 
+    test4 = 20*math.log10((test3)/.006) 
     test5 = 20*math.log10((test3)/.006) 
 
     recording = noise._record()
