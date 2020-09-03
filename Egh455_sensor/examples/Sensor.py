@@ -95,8 +95,8 @@ while True:
             channels=1,
             dtype='float64'
         )
-    test3 = numpy.abs(test3[:])
-    test3 = numpy.mean(test3[:])
+    test3_1 = numpy.abs(test3[:])
+    test3 = numpy.max(test3_1[:])
 
     test4 = 20*math.log10(test3/.00015) 
     test5 = 20*math.log10(test3/.006) 
@@ -210,7 +210,7 @@ while True:
     Test5: {:05.08f} DB
     """.format(DB,test2,test3,test4,test5))
 
-
+    print(str(test3_1))
 
     time.sleep(2)
     #teest
