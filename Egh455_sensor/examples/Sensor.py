@@ -33,6 +33,8 @@ bme280 = BME280(i2c_dev=bus)
 noise = Noise()
 
 #temperature, pressure, humidity, light, noise level, gas sensors data 
+
+#test
 while True:
 
     logging.info(" Sensors data loop ")
