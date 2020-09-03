@@ -100,7 +100,7 @@ while True:
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
 
-    z = magnitude[-100:]
+    z = magnitude.argsort()[-100:]
     print(str(len(z)))
     
 
