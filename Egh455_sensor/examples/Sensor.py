@@ -101,7 +101,8 @@ while True:
     magnitude = numpy.abs(recording[:])
 
     z = magnitude
-    print(str(z))
+    print(len(str(z)))
+    
 
     test2 = numpy.max(magnitude[:])
     test3 = 65*math.log10((test2)/.03) 
