@@ -101,7 +101,7 @@ while True:
     magnitude = numpy.abs(recording[:])
 
     #z = magnitude[-100:]
-    z = numpy.argsort(magnitude)[7900:]
+    z = numpy.sort(magnitude)[7900:]
     print(str(len(z)))
     print(str((z)))
 
