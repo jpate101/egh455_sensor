@@ -205,8 +205,7 @@ while True:
     Test2: {:05.02f} DB
     Test3: {:05.08f} DB
     Test4: {:05.08f} DB
-    Test5: {:05.08f} DB
-    """.format(DB,test2,test3,test4,test5))
+    """.format(DB,test2,test3,test4))
 
     time.sleep(2)
     #teest
