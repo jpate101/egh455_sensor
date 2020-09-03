@@ -101,7 +101,7 @@ while True:
     magnitude = numpy.abs(recording[:])
 
     z = magnitude
-    print(len(str(z)))
+    print(str(len(z)))
     
 
     test2 = numpy.max(magnitude[:])
