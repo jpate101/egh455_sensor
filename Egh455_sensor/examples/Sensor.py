@@ -109,21 +109,6 @@ while True:
     #print(str(len(z)))
     #print(str((z)))
     #print(str((x)))
-    re_2 = 0
-    for x in range(10):
-        re_1 = sounddevice.rec(
-            int(.1 * 16000),
-            samplerate= 16000,
-            blocking=True,
-            channels=1,
-            dtype='float64'
-        )
-        re_1 = numpy.max(numpy.abs(re_1[:]))
-        re_2 = re_2 + re_1
-
-    re_2 = re_2/10
-        
-
 
     test2 = numpy.max(magnitude[:])
     test3 = 65*math.log10((test2)/.03) 
@@ -231,8 +216,6 @@ while True:
     Test3: {:05.02f} DB
     Test4: {:05.02f} DB
     """.format(DB,test2,test3,test4))
-
-    print(str(re_2))
 
     time.sleep(2)
     
