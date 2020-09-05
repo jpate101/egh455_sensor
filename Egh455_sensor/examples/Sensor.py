@@ -112,7 +112,7 @@ while True:
     re_2 = 0
     for x in range(10):
         re_1 = sounddevice.rec(
-            int(.5 * 16000),
+            int(.1 * 16000),
             samplerate= 16000,
             blocking=True,
             channels=1,
