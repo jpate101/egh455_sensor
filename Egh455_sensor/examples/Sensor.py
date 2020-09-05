@@ -112,14 +112,14 @@ while True:
     re_2 = 0
     for x in range(10):
         re_1 = sounddevice.rec(
-            int(.1 * 16000),
+            int(.5 * 16000),
             samplerate= 16000,
             blocking=True,
             channels=1,
             dtype='float64'
         )
         re_1 = numpy.max(numpy.abs(re_1[:]))
-        re_2 = re_2 + re_2
+        re_2 = re_2 + re_1
 
     re_2 = re_2/10
         
@@ -233,7 +233,6 @@ while True:
     """.format(DB,test2,test3,test4))
 
     print(str(re_2))
-    re_2 = 0
 
     time.sleep(2)
     
