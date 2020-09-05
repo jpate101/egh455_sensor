@@ -77,7 +77,6 @@ while True:
     pressure = bme280.get_pressure()
     humidity = bme280.get_humidity()
     lux = ltr559.get_lux()
-    low, mid, high, amp = noise.get_noise_profile()
     readings = gas.read_all()
 
     #
@@ -97,22 +96,24 @@ while True:
     #test4 = 20*math.log10((test3)/.006) 
     #test5 = 20*math.log10((test3)/.006) 
 
+    low, mid, high, amp = noise.get_noise_profile()
+
     recording = noise._record()
     magnitude = numpy.abs(recording[:])
 
-    print(magnitude.shape)
+    #print(magnitude.shape)
     #z = magnitude[-100:]
-    z = numpy.sort(magnitude[:])
-    x = numpy.max(z[:])
-    z = z[-1:]
-    print(str(len(z)))
-    print(str((z)))
-    print(str((x)))
+    #z = numpy.sort(magnitude[:])#.sort doesnt work 
+    #z = z[-3:]
+    #x = numpy.max(z[:])
+    #print(str(len(z)))
+    #print(str((z)))
+    #print(str((x)))
 
     test2 = numpy.max(magnitude[:])
     test3 = 65*math.log10((test2)/.03) 
     test4 = 20*math.log10((test2))+60 
-    DB = math.pow(10, 3.6 * math.log10(mid) + 3.35)
+    DB = math.pow(10, 3.6 * math.log10(amp) + 3.35)
     if DB  > 120:#overload point 
         DB = 120
     
