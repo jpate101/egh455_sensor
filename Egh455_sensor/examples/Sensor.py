@@ -104,10 +104,12 @@ while True:
     #z = magnitude[-100:]
     z = numpy.sort(magnitude[:])
     x = numpy.max(z[:])
+    y = z[2900:]
     z = z[-5:]
     print(str(len(z)))
     print(str((z)))
     print(str((x)))
+    print(str((y)))
 
     test2 = numpy.max(magnitude[:])
     test3 = 65*math.log10((test2)/.03) 
