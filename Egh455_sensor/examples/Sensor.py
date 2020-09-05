@@ -104,7 +104,7 @@ while True:
     #z = magnitude[-100:]
     z = numpy.sort(magnitude)
     x = numpy.max(z[:])
-    z = z[-5:]
+    #z = z[-5:]
     print(str(len(z)))
     print(str((z)))
     print(str((x)))
