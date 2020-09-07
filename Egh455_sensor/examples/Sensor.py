@@ -104,7 +104,7 @@ while True:
     #print(magnitude.shape)
     #z = magnitude[-100:]
     z = sorted(magnitude[:])
-    z = x
+    x = z
     z = z[-100:]
     x = x[7900:]
     z = numpy.mean(z)
