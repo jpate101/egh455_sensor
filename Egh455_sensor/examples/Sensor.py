@@ -118,7 +118,7 @@ while True:
     #print(str((x)))
 
     test2 = numpy.max(magnitude[:])
-    test3 = 65*math.log10((z)/.03) 
+    test3 = math.log10(65*(z)/.06) 
     test4 = 65*20*math.log10(z/.06)
     #DB = math.pow(10, 3.6 * math.log10(amp) + 3.35)
     DB = test4
