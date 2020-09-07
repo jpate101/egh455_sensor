@@ -97,8 +97,9 @@ while True:
     #test5 = 20*math.log10((test3)/.006) 
 
     low, mid, high, amp = noise.get_noise_profile()
-
+    print("_____start_____")
     recording = noise._record()
+    print("_____end_____")
     magnitude = numpy.abs(recording[:])
 
     #print(magnitude.shape)
