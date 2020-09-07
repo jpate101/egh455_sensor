@@ -79,49 +79,17 @@ while True:
     lux = ltr559.get_lux()
     readings = gas.read_all()
 
-    #
-    #https://github.com/TheHWcave/Enviro-Plus/blob/master/review-part2/micro_SPL.py review example
-    #test2 = noise.get_amplitude_at_frequency_range(0,5000)#https://github.com/pimoroni/enviroplus-python/blob/master/library/enviroplus/noise.py
-    #maybe 
-
-    #test3 = sounddevice.rec(
-     #       int(2 * 16000),
-      #      samplerate= 16000,
-       #     blocking=True,
-        #    channels=1,
-         #   dtype='float64'
-        #)
-    #test3 = numpy.abs(test3[:])
-    #test3 = numpy.max(test3[:])
-    #test4 = 20*math.log10((test3)/.006) 
-    #test5 = 20*math.log10((test3)/.006) 
-
     low, mid, high, amp = noise.get_noise_profile()
     print("_____start_____")
     recording = noise._record()
     print("_____end_____")
     magnitude = numpy.abs(recording[:])
 
-    #print(magnitude.shape)
-    #z = magnitude[-100:]
-    z = sorted(magnitude[:])
-    x = z
-    x = x[-5:]
-    z = z[-200:]
-    #print(str(z))
-    z = numpy.mean(z)
-    #z = numpy.sort(magnitude[:])#.sort doesnt work 
-    #z = z[-3:]
-    #x = numpy.max(z[:])
-    #print(str(len(z)))
-    #print(str((z)))
-    #print(str((x)))
-
-    test2 = numpy.max(magnitude[:])
-    test3 = math.log10(65*(z)/.06) 
-    test4 = 65*10*math.log10(z/.058)
-    #DB = math.pow(10, 3.6 * math.log10(amp) + 3.35)
-    DB = test4
+    DB = sorted(magnitude[:])
+    DB = DB[-200:]
+    DB = numpy.mean(DB)
+    DB = 65*10*math.log10(DB/.058)
+    DB = DB
     if DB  > 120:#overload point 
         DB = 120
     
@@ -199,7 +167,7 @@ while True:
     'Humidity': humidity,
     'Light': lux,
     
-    'NoiseLevel': amp,
+    'NoiseLevel amount': amp,
     'NoiseLevel in DB': DB,
 
     'C0': CO,
@@ -220,10 +188,7 @@ while True:
     #debug
     logging.info("""
     NoiseLevel: {:05.02f} DB
-    Test2: {:05.02f} DB
-    Test3: {:05.02f} DB
-    Test4: {:05.02f} DB
-    """.format(DB,test2,test3,test4))
+    """.format(DB))
 
     time.sleep(2)
     #print(str(z))
