@@ -223,5 +223,5 @@ while True:
 
     time.sleep(2)
     print(str(z))
-    print(str(x))
+    #print(str(x))
     #teest
