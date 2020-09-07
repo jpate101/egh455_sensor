@@ -107,7 +107,7 @@ while True:
     z = sorted(magnitude[:])
     x = z
     x = x[-5:]
-    z = z[-200:]
+    z = z[-250:]
     #print(str(z))
     z = numpy.mean(z)
     #z = numpy.sort(magnitude[:])#.sort doesnt work 
