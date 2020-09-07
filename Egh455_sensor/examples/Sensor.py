@@ -119,7 +119,7 @@ while True:
 
     test2 = numpy.max(magnitude[:])
     test3 = math.log10(65*(z)/.06) 
-    test4 = 65*10*math.log10(z/.0653)
+    test4 = 65*10*math.log10(z/.058)
     #DB = math.pow(10, 3.6 * math.log10(amp) + 3.35)
     DB = test4
     if DB  > 120:#overload point 
