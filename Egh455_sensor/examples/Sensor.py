@@ -105,7 +105,9 @@ while True:
     #z = magnitude[-100:]
     z = sorted(magnitude[:])
     z = z[-100:]
+    x = z[7900:]
     z = numpy.mean(z)
+    x - numpy.mean(x)
     #z = numpy.sort(magnitude[:])#.sort doesnt work 
     #z = z[-3:]
     #x = numpy.max(z[:])
@@ -222,4 +224,5 @@ while True:
 
     time.sleep(2)
     print(str(z))
+    print(str(x))
     #teest
