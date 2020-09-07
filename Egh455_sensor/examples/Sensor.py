@@ -102,7 +102,7 @@ while True:
     magnitude = numpy.abs(recording[:])
 
     #print(magnitude.shape)
-    #z = magnitude[-100:]
+    z = magnitude[-100:]
     #z = numpy.sort(magnitude[:])#.sort doesnt work 
     #z = z[-3:]
     #x = numpy.max(z[:])
@@ -218,5 +218,5 @@ while True:
     """.format(DB,test2,test3,test4))
 
     time.sleep(2)
-    
+    print(str(z))
     #teest
