@@ -159,14 +159,14 @@ while True:
     """.format(amp))
 
     #resistance values 
-    logging.info("""
-    VO red: {:05.2f} ohms
-    red: {:05.2f} ohms
-    VO ox: {:05.2f} ohms
-    ox: {:05.2f} ohms
-    VO nh3: {:05.2f} ohms
-    nh3: {:05.2f} ohms
-    """.format(VO_RED,readings.reducing,VO_OX,readings.oxidising,VO_NH3,readings.nh3))
+    #logging.info("""
+    #VO red: {:05.2f} ohms
+    #red: {:05.2f} ohms
+    #VO ox: {:05.2f} ohms
+    #ox: {:05.2f} ohms
+    #VO nh3: {:05.2f} ohms
+    #nh3: {:05.2f} ohms
+    #""".format(VO_RED,readings.reducing,VO_OX,readings.oxidising,VO_NH3,readings.nh3))
 
 
     #logging.info(readings)
