@@ -104,11 +104,9 @@ while True:
     #print(magnitude.shape)
     #z = magnitude[-100:]
     z = sorted(magnitude[:])
-    x = z
     z = z[-100:]
-    x = x[7900:]
+    print(str(z))
     z = numpy.mean(z)
-    x - numpy.mean(x)
     #z = numpy.sort(magnitude[:])#.sort doesnt work 
     #z = z[-3:]
     #x = numpy.max(z[:])
