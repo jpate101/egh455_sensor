@@ -55,7 +55,8 @@ VO_OX = 0
 VO_NH3 = 0
 
 logging.info(" \ndetermine baseline Vo(clean air) values")
-for x in range(50):
+sample_size = 100
+for x in range(sample_size):
     readings = gas.read_all()
     time.sleep(.01)
 
@@ -64,9 +65,9 @@ for x in range(50):
     VO_NH3 = VO_NH3 + readings.nh3
 
 
-VO_RED = VO_RED/50
-VO_OX = VO_OX/50
-VO_NH3 = VO_NH3/50
+VO_RED = VO_RED/sample_size
+VO_OX = VO_OX/sample_size
+VO_NH3 = VO_NH3/sample_size
 
 log_count = 0#file count 
 while True:
@@ -86,12 +87,12 @@ while True:
     magnitude = numpy.abs(recording[:])
 
     DB = sorted(magnitude[:])
-    DB = DB[-200:]
+    DB = DB[-100:]
     DB = numpy.mean(DB)
-    DB = 65*10*math.log10(DB/.058)
-    DB = DB
-    if DB  > 120:#overload point 
-        DB = 120
+    #DB = 65*10*math.log10(DB/.058)
+    #DB = DB
+    #if DB  > 120:#overload point 
+     #   DB = 120
     
     #convert readings
     # using rs/ro match graph
@@ -167,8 +168,11 @@ while True:
     'Humidity': humidity,
     'Light': lux,
     
-    'NoiseLevel amount': amp,
-    'NoiseLevel in DB': DB,
+    'NoiseLevel': DB,
+    'Noise_mag_low': low,
+    'Noise_mag_mid': mid,
+    'Noise_mag_high': high,
+    'Noise_mag_all': amp,
 
     'C0': CO,
     'No2': No2,
@@ -187,7 +191,7 @@ while True:
 
     #debug
     logging.info("""
-    NoiseLevel: {:05.02f} DB
+    NoiseLevel: {:05.02f} 
     """.format(DB))
 
     time.sleep(2)
