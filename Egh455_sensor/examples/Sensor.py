@@ -87,7 +87,7 @@ while True:
     magnitude = numpy.abs(recording[:])
 
     DB = sorted(magnitude[:])
-    DB = DB[-100:]
+    DB = DB[-200:]
     DB = numpy.mean(DB)
     #DB = 65*10*math.log10(DB/.058)
     #DB = DB
