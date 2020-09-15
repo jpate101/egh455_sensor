@@ -43,7 +43,7 @@ noise = Noise()
 
 #sensor warm up   
 logging.info(" \nSensors warmup period (5 mins) - currently 1")
-for x in range(1):
+for x in range(5):
     readings = gas.read_all()
     time.sleep(60)
     logging.info(" \n1 min as passed")
@@ -191,7 +191,7 @@ while True:
 
     #debug
     logging.info("""
-    NoiseLevel: {:05.02f} 
+    NoiseLevel: {:05.05f} 
     """.format(DB))
 
     time.sleep(2)
