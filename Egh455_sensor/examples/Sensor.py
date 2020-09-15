@@ -133,7 +133,7 @@ while True:
 
     logging.info("""
     NoiseLevel: {:05.02f} Amps
-    """.format(amp))
+    """.format(DB))
 
     #resistance values 
     #logging.info("""
