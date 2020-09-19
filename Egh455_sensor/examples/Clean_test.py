@@ -41,7 +41,7 @@ while True:
     VO_OX = VO_OX/sample_size
     VO_NH3 = VO_NH3/sample_size
 
-    Red_array[count] = VO_RED
+    Red_array.append(VO_RED)
 
     print("_________________")
     print("RED"+str(VO_RED))
