@@ -44,9 +44,9 @@ while True:
     Red_array.append(VO_RED)
 
     print("_________________")
-    print("RED"+str(VO_RED))
-    print("OX"+str(VO_OX))
-    print("NH3"+str(VO_NH3))
+    print("RED "+str(VO_RED))
+    print("OX "+str(VO_OX))
+    print("NH3 "+str(VO_NH3))
     print("_________________")
 
     count = count + 1
