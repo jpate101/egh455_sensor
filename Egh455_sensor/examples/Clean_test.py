@@ -51,9 +51,10 @@ while True:
 
     count = count + 1
     print(str(count))
-    if count == 6:
+    if count == 12:
         break
 
 print("end")
 print(str(Red_array))
 print(numpy.std(Red_array))
+print(str(numpy.mean(Red_array)))
