@@ -19,15 +19,15 @@ while True:
     VO_RED = 0
     VO_OX = 0
     VO_NH3 = 0
-    logging.info(" \nSensors warmup period (5 mins) - currently 5")
-    for x in range(5):
+    logging.info(" \nSensors warmup period (5 mins) - currently 10")
+    for x in range(10):
         readings = gas.read_all()
         time.sleep(60)
         logging.info(" \n1 min as passed")
 
 
     logging.info(" \ndetermine baseline Vo(clean air) values")
-    sample_size = 100
+    sample_size = 200
     for x in range(sample_size):
         readings = gas.read_all()
         time.sleep(.01)
