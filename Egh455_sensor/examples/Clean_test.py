@@ -51,5 +51,6 @@ while True:
     if count == 6:
         break
 
+print("end")
 print(str(Red_array))
 print(numpy.std(Red_array))
