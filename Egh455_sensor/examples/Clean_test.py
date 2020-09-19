@@ -16,6 +16,9 @@ logging.info("""Sensor clean air resistnace test """)
 count = 0
 Red_array = []
 while True:
+    VO_RED = 0
+    VO_OX = 0
+    VO_NH3 = 0
     logging.info(" \nSensors warmup period (5 mins) - currently 5")
     for x in range(5):
         readings = gas.read_all()
