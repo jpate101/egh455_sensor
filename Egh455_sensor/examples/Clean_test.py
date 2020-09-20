@@ -15,6 +15,8 @@ logging.info("""Sensor clean air resistnace test """)
 #sensor warm up   
 count = 0
 Red_array = []
+Ox_array = []
+Nh3_array = []
 while True:
     VO_RED = 0
     VO_OX = 0
@@ -27,7 +29,7 @@ while True:
 
 
     logging.info(" \ndetermine baseline Vo(clean air) values")
-    sample_size = 200
+    sample_size = 300
     for x in range(sample_size):
         readings = gas.read_all()
         time.sleep(.01)
@@ -42,6 +44,9 @@ while True:
     VO_NH3 = VO_NH3/sample_size
 
     Red_array.append(VO_RED)
+    Ox_array.append(VO_OX)
+    Nh3_array.append(VO_NH3)
+
 
     print("_________________")
     print("RED "+str(VO_RED))
@@ -55,6 +60,15 @@ while True:
         break
 
 print("end")
+print("Red")
 print(str(Red_array))
 print(numpy.std(Red_array))
 print(str(numpy.mean(Red_array)))
+print("Ox")
+print(str(Ox_array))
+print(numpy.std(Ox_array))
+print(str(numpy.mean(Ox_array)))
+print("Nh3")
+print(str(Nh3_array))
+print(numpy.std(Nh3_array))
+print(str(numpy.mean(Nh3_array)))
