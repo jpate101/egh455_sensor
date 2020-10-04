@@ -3,7 +3,7 @@ import time
 import math 
 import json
 import numpy
-import sounddevice
+#import sounddevice
 
 from bme280 import BME280
 import ST7735

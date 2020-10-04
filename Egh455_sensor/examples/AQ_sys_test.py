@@ -101,20 +101,20 @@ while True:
     C3H8 = math.pow(10, -2.5 * math.log10(readings.nh3/VO_NH3) + 2.845)#done 
     #cut undetechable levels out for gas 
 
-    if CO < 1 or CO > 1000:
-        CO = 0
-    if No2 < .05 or No2 > 10:
-        No2 = 0
-    if C2H5OH < 10 or C2H5OH > 500:
-        C2H5OH = 0
-    if H < 1 or H > 1000:
-        H = 0
-    if amm < 1 or amm > 500:
-        amm = 0
-    if CH4 < 1000:
-        CH4 = 0
-    if C3H8 < 1000:
-        C3H8 = 0
+    #if CO < 1 or CO > 1000:
+    #    CO = 0
+    #if No2 < .05 or No2 > 10:
+    #    No2 = 0
+    #if C2H5OH < 10 or C2H5OH > 500:
+    #    C2H5OH = 0
+    #if H < 1 or H > 1000:
+    #    H = 0
+    #if amm < 1 or amm > 500:
+    #    amm = 0
+    #if CH4 < 1000:
+    #    CH4 = 0
+    #if C3H8 < 1000:
+    3    C3H8 = 0
 
 
     logging.info("""
