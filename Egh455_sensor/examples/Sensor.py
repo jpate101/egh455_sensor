@@ -46,7 +46,7 @@ noise = Noise()
 for x in range(5):
     readings = gas.read_all()
     time.sleep(1)
-    logging.info(" \n1 min as passed")
+    #logging.info(" \n1 min as passed")
 
 #determine baseline Vo(clean air) values  
 
