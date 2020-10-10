@@ -55,7 +55,7 @@ VO_OX = 0
 VO_NH3 = 0
 
 logging.info(" \ndetermine baseline Vo(clean air) values")
-sample_size = 100
+sample_size = 300
 for x in range(sample_size):
     readings = gas.read_all()
     time.sleep(.01)
