@@ -3,7 +3,7 @@ import time
 import math 
 import json
 import numpy
-#import sounddevice
+import sounddevice
 
 from bme280 import BME280
 import ST7735
@@ -42,7 +42,7 @@ bme280 = BME280(i2c_dev=bus)
 noise = Noise()
 
 #sensor warm up   
-logging.info(" \nSensors warmup period (5 mins) - currently 1")
+logging.info(" \nSensors warmup period (5 mins) - currently 5")
 for x in range(5):
     readings = gas.read_all()
     time.sleep(60)
@@ -55,7 +55,7 @@ VO_OX = 0
 VO_NH3 = 0
 
 logging.info(" \ndetermine baseline Vo(clean air) values")
-sample_size = 100
+sample_size = 300
 for x in range(sample_size):
     readings = gas.read_all()
     time.sleep(.01)
@@ -89,10 +89,6 @@ while True:
     DB = sorted(magnitude[:])
     DB = DB[-200:]
     DB = numpy.mean(DB)
-    #DB = 65*10*math.log10(DB/.058)
-    #DB = DB
-    #if DB  > 120:#overload point 
-     #   DB = 120
     
     #convert readings
     # using rs/ro match graph
@@ -105,20 +101,20 @@ while True:
     C3H8 = math.pow(10, -2.5 * math.log10(readings.nh3/VO_NH3) + 2.845)#done 
     #cut undetechable levels out for gas 
 
-    if CO < 1 or CO > 1000:
-        CO = 0
-    if No2 < .05 or No2 > 10:
-        No2 = 0
-    if C2H5OH < 10 or C2H5OH > 500:
-        C2H5OH = 0
-    if H < 1 or H > 1000:
-        H = 0
-    if amm < 1 or amm > 500:
-        amm = 0
-    if CH4 < 1000:
-        CH4 = 0
-    if C3H8 < 1000:
-        C3H8 = 0
+    #if CO < 1 or CO > 1000:
+    #    CO = 0
+    #if No2 < .05 or No2 > 10:
+    #    No2 = 0
+    #if C2H5OH < 10 or C2H5OH > 500:
+    #    C2H5OH = 0
+    #if H < 1 or H > 1000:
+    #    H = 0
+    #if amm < 1 or amm > 500:
+    #    amm = 0
+    #if CH4 < 1000:
+    #    CH4 = 0
+    #if C3H8 < 1000:
+    3    C3H8 = 0
 
 
     logging.info("""
@@ -135,29 +131,14 @@ while True:
     NoiseLevel: {:05.02f} Amps
     """.format(DB))
 
-    #resistance values 
-    #logging.info("""
-    #VO red: {:05.2f} ohms
-    #red: {:05.2f} ohms
-    #VO ox: {:05.2f} ohms
-    #ox: {:05.2f} ohms
-    #VO nh3: {:05.2f} ohms
-    #nh3: {:05.2f} ohms
-    #""".format(VO_RED,readings.reducing,VO_OX,readings.oxidising,VO_NH3,readings.nh3))
-
-
-    #logging.info(readings)
     logging.info("""
-    C0: {:05.2f} ppm
-    No2: {:05.2f} ppm
-    ammonia: {:05.2f} ppm
-    C2H5OH: {:05.2f} ppm
-    H: {:05.2f} ppm
-    CH4: {:05.2f} ppm
-    C3H8: {:05.2f} ppm
-    """.format(CO,No2,amm,C2H5OH,H,CH4,C3H8))
-
-    
+    RED: {:05.2f} ohms
+    Ox: {:05.2f} ohms
+    NH3: {:05.2f} ohms
+    RED RS/RO: {:05.2f} 
+    Ox RS/RO: {:05.2f} 
+    Nh3 RS/RO: {:05.2f} 
+    """.format((readings.reducing,readings.oxidising,readings.nh3,(readings.reducing/VO_RED),(readings.oxidising/VO_OX),(readings.nh3/VO_nh3))))
     
     data = {}
     data['SensorData'] = []
