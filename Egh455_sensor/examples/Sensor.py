@@ -89,7 +89,6 @@ while True:
     DB = DB[-200:]
     DB = numpy.mean(DB)
     DB = 65*10*math.log10(DB/.058)
-    DB = DB
     if DB  > 120:#overload point 
         DB = 120
     
