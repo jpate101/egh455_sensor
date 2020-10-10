@@ -45,7 +45,7 @@ noise = Noise()
 logging.info(" \nSensors warmup period (5 mins) - currently 1")
 for x in range(5):
     readings = gas.read_all()
-    time.sleep(60)
+    time.sleep(1)
     logging.info(" \n1 min as passed")
 
 #determine baseline Vo(clean air) values  
