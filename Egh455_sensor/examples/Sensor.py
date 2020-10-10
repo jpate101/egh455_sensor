@@ -182,11 +182,11 @@ while True:
     'methane': CH4,
     'C3H8':C3H8
     })
-    with open('Sensor_data_file/data'+str(log_count)+'.json', 'w') as outfile:
-        json.dump(data, outfile)
-    
-    #with open('../../data'+str(log_count)+'.json', 'w') as outfile:
+    #with open('Sensor_data_file/data'+str(log_count)+'.json', 'w') as outfile:
     #    json.dump(data, outfile)
+    
+    with open('../../../data'+str(log_count)+'.json', 'w') as outfile:
+        json.dump(data, outfile)
     
     log_count += 1
 
