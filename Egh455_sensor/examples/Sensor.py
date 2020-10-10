@@ -184,7 +184,7 @@ while True:
     })
     with open('Sensor_data_file/data'+str(log_count)+'.json', 'w') as outfile:
         json.dump(data, outfile)
-
+    
     #with open('../../data'+str(log_count)+'.json', 'w') as outfile:
     #    json.dump(data, outfile)
     
@@ -196,6 +196,8 @@ while True:
     logging.info("""
     NoiseLevel: {:05.05f} 
     """.format(DB))
+
+    print("check")
 
     time.sleep(2)
     #print(str(z))
