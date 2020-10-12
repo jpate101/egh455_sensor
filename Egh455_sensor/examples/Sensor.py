@@ -72,7 +72,7 @@ VO_NH3 = VO_NH3/sample_size
 log_count = 0#file count 
 while True:
 
-    #logging.info(" \nSensors data loop")
+    logging.info(" \nSensors data loop")
 
     temperature = bme280.get_temperature()
     pressure = bme280.get_pressure()
@@ -121,11 +121,11 @@ while True:
         C3H8 = 0
 
 
-    #logging.info("""
-    #Temperature: {:05.2f} *C
-    #Pressure: {:05.2f} hPa
-    #Relative humidity: {:05.2f} %
-    #""".format(temperature, pressure, humidity))
+    logging.info("""
+    Temperature: {:05.2f} *C
+    Pressure: {:05.2f} hPa
+    Relative humidity: {:05.2f} %
+    """.format(temperature, pressure, humidity))
 
     #logging.info("""
     #Light: {:05.02f} Lux
