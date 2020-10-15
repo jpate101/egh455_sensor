@@ -34,7 +34,7 @@ logging.basicConfig(
     datefmt='%Y-%m-%d %H:%M:%S')
 
 
-logging.info(" Sensors data ")
+#logging.info(" Sensors data ")
 
 
 bus = SMBus(1)
@@ -42,10 +42,10 @@ bme280 = BME280(i2c_dev=bus)
 noise = Noise()
 
 #sensor warm up   
-logging.info(" \nSensors warmup period (5 mins) - currently 1")
+#logging.info(" \nSensors warmup period (5 mins) - currently 1")
 for x in range(5):
     readings = gas.read_all()
-    time.sleep(1)
+    time.sleep(60)
     #logging.info(" \n1 min as passed")
 
 #determine baseline Vo(clean air) values  
@@ -55,7 +55,7 @@ VO_OX = 0
 VO_NH3 = 0
 
 #logging.info(" \ndetermine baseline Vo(clean air) values")
-sample_size = 300
+sample_size = 500
 for x in range(sample_size):
     readings = gas.read_all()
     time.sleep(.01)
@@ -72,7 +72,7 @@ VO_NH3 = VO_NH3/sample_size
 log_count = 0#file count 
 while True:
 
-    logging.info(" \nSensors data loop")
+    #logging.info(" \nSensors data loop")
 
     temperature = bme280.get_temperature()
     pressure = bme280.get_pressure()
@@ -81,9 +81,9 @@ while True:
     readings = gas.read_all()
 
     low, mid, high, amp = noise.get_noise_profile()
-    print("_____start_____")
+    #print("_____start_____")
     recording = noise._record()
-    print("_____end_____")
+    #print("_____end_____")
     magnitude = numpy.abs(recording[:])
 
     DB = sorted(magnitude[:])
@@ -121,22 +121,22 @@ while True:
         C3H8 = 0
 
 
-    logging.info("""
-    Temperature: {:05.2f} *C
-    Pressure: {:05.2f} hPa
-    Relative humidity: {:05.2f} %
-    """.format(temperature, pressure, humidity))
+    #logging.info("""
+    #Temperature: {:05.2f} *C
+    #Pressure: {:05.2f} hPa
+    #elative humidity: {:05.2f} %
+    #""".format(temperature, pressure, humidity))
 
-    logging.info("""
-    Light: {:05.02f} Lux
-    """.format(lux))
+    #logging.info("""
+    #Light: {:05.02f} Lux
+    #""".format(lux))
 
-    logging.info("""
-    NoiseLevel: {:05.02f} Amps
-    """.format(DB))
+    #logging.info("""
+    #NoiseLevel: {:05.02f} Amps
+    #""".format(DB))
 
     #resistance values 
-    logging.info("""
+    #logging.info("""
     #VO red: {:05.2f} ohms
     #red: {:05.2f} ohms
     #VO ox: {:05.2f} ohms
@@ -146,16 +146,16 @@ while True:
     #""".format(VO_RED,readings.reducing,VO_OX,readings.oxidising,VO_NH3,readings.nh3))
 
 
-    logging.info(readings)
-    logging.info("""
-    C0: {:05.2f} ppm
-    No2: {:05.2f} ppm
-    ammonia: {:05.2f} ppm
-    C2H5OH: {:05.2f} ppm
-    H: {:05.2f} ppm
-    CH4: {:05.2f} ppm
-    C3H8: {:05.2f} ppm
-    """.format(CO,No2,amm,C2H5OH,H,CH4,C3H8))
+    #logging.info(readings)
+    #logging.info("""
+    #C0: {:05.2f} ppm
+    #No2: {:05.2f} ppm
+    #ammonia: {:05.2f} ppm
+    #C2H5OH: {:05.2f} ppm
+    #H: {:05.2f} ppm
+    #CH4: {:05.2f} ppm
+    #C3H8: {:05.2f} ppm
+    #""".format(CO,No2,amm,C2H5OH,H,CH4,C3H8))
 
     
     
