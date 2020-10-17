@@ -138,7 +138,7 @@ while True:
     RED RS/RO: {:05.2f} 
     Ox RS/RO: {:05.2f} 
     Nh3 RS/RO: {:05.2f} 
-    """.format((readings.reducing,readings.oxidising,readings.nh3,(readings.reducing/VO_RED),(readings.oxidising/VO_OX),(readings.nh3/VO_nh3))))
+    """.format((readings.reducing,readings.oxidising,readings.nh3,(readings.reducing/VO_RED),(readings.oxidising/VO_OX),(readings.nh3/VO_NH3))))
     
     data = {}
     data['SensorData'] = []
