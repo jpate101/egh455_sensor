@@ -119,7 +119,7 @@ while True:
     Ox: {:05.2f} ohms
     NH3: {:05.2f} ohms
 
-    """.format(readings.reducing,readings.oxidising,readings.nh)))
+    """.format(readings.reducing,readings.oxidising,readings.nh))
 
     logging.info("""
     RED RS/RO: {:05.2f} 
