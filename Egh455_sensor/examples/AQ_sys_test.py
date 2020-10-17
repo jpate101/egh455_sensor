@@ -114,7 +114,7 @@ while True:
     #if CH4 < 1000:
     #    CH4 = 0
     #if C3H8 < 1000:
-    3    C3H8 = 0
+    #    C3H8 = 0
 
 
     logging.info("""
@@ -167,13 +167,6 @@ while True:
         json.dump(data, outfile)
     
     log_count += 1
-
-
-
-    #debug
-    logging.info("""
-    NoiseLevel: {:05.05f} 
-    """.format(DB))
 
     time.sleep(2)
     #print(str(z))
