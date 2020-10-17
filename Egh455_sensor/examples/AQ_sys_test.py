@@ -45,7 +45,7 @@ noise = Noise()
 logging.info(" \nSensors warmup period (5 mins) - currently 5")
 for x in range(5):
     readings = gas.read_all()
-    time.sleep(60)
+    time.sleep(1)
     logging.info(" \n1 min as passed")
 
 #determine baseline Vo(clean air) values  
@@ -135,10 +135,14 @@ while True:
     RED: {:05.2f} ohms
     Ox: {:05.2f} ohms
     NH3: {:05.2f} ohms
+
+    """.format((readings.reducing,readings.oxidising,readings.nh3)))
+
+    logging.info("""
     RED RS/RO: {:05.2f} 
     Ox RS/RO: {:05.2f} 
     Nh3 RS/RO: {:05.2f} 
-    """.format((readings.reducing,readings.oxidising,readings.nh3,(readings.reducing/VO_RED),(readings.oxidising/VO_OX),(readings.nh3/VO_NH3))))
+    """.format(((readings.reducing/VO_RED),(readings.oxidising/VO_OX),(readings.nh3/VO_NH3))))
     
     data = {}
     data['SensorData'] = []
