@@ -99,23 +99,6 @@ while True:
     H = math.pow(10, -2.6 * math.log10(readings.nh3/VO_NH3) + .8) #done
     CH4 = math.pow(10, -4.7 * math.log10(readings.reducing/VO_RED) + 2.65)#meth  #done 
     C3H8 = math.pow(10, -2.5 * math.log10(readings.nh3/VO_NH3) + 2.845)#done 
-    #cut undetechable levels out for gas 
-
-    #if CO < 1 or CO > 1000:
-    #    CO = 0
-    #if No2 < .05 or No2 > 10:
-    #    No2 = 0
-    #if C2H5OH < 10 or C2H5OH > 500:
-    #    C2H5OH = 0
-    #if H < 1 or H > 1000:
-    #    H = 0
-    #if amm < 1 or amm > 500:
-    #    amm = 0
-    #if CH4 < 1000:
-    #    CH4 = 0
-    #if C3H8 < 1000:
-    #    C3H8 = 0
-
 
     logging.info("""
     Temperature: {:05.2f} *C
@@ -136,13 +119,13 @@ while True:
     Ox: {:05.2f} ohms
     NH3: {:05.2f} ohms
 
-    """.format((readings.reducing,readings.oxidising,readings.nh3)))
+    """.format(readings.reducing,readings.oxidising,readings.nh)))
 
     logging.info("""
     RED RS/RO: {:05.2f} 
     Ox RS/RO: {:05.2f} 
     Nh3 RS/RO: {:05.2f} 
-    """.format(((readings.reducing/VO_RED),(readings.oxidising/VO_OX),(readings.nh3/VO_NH3))))
+    """.format((readings.reducing/VO_RED),(readings.oxidising/VO_OX),(readings.nh3/VO_NH3)))
     
     data = {}
     data['SensorData'] = []
