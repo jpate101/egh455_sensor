@@ -111,7 +111,7 @@ while True:
     """.format(lux))
 
     logging.info("""
-    NoiseLevel: {:05.02f} Amps
+    NoiseLevel: {:05.04f} Amps
     """.format(DB))
 
     logging.info("""
